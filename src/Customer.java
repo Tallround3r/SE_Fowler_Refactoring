@@ -5,7 +5,7 @@ class Customer
     private String name;
     private ArrayList<Rental> rentalList = new ArrayList<Rental>();
     private int frequentRenterPoints;
-    private double completePayment;
+    private double rentalPrice;
     private String rentalStatus;
 
     public Customer(String name)
@@ -27,20 +27,19 @@ class Customer
 
     public String getRentalReport()
     {
-        completePayment = 0;
+        rentalPrice = 0;
         frequentRenterPoints = 0;
 
-        rentalList.stream().forEach(rental -> {
+        rentalList.forEach(rental -> {
 
-            completePayment += rental.getCost();
+            rentalPrice += rental.getPrice();
 
             frequentRenterPoints += rental.getGainedRenterPoints();
 
             rentalStatus += rental.getReport();
         });
 
-        //add footer lines
-        rentalStatus += "Amount owed is " + String.valueOf(completePayment) + "\n";
+        rentalStatus += "Amount owed is " + String.valueOf(rentalPrice) + "\n";
         rentalStatus += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
         return rentalStatus;
     }

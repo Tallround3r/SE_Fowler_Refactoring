@@ -17,7 +17,7 @@ class Rental
         return movie;
     }
 
-    public double getCost()
+    public double getPrice()
     {
         return movie.getPriceCode().calculatePricingForRental(this);
     }
@@ -30,6 +30,6 @@ class Rental
     public String getReport()
     {
         return "\t" + this.getMovie().getTitle() + "\t" + "\t" + this.getDaysRented() + "\t"
-            + String.valueOf(this.getCost()) + "\n";
+            + String.valueOf(this.getPrice()) + "\n";
     }
 }
