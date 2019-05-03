@@ -19,7 +19,7 @@ class MovieRentalTest
         c1.addRental(r1);   
         c1.addRental(r2); 
         result = c1.statement();
-        assertEquals(EXPECTED, result.replaceAll(" ", "").replaceAll("\n", "").replaceAll("\r", "").replaceAll("\t", ""));
+        assertEquals(EXPECTED, result.replaceAll("\\s", "")); //all whitespace removed
     }
 
 }
