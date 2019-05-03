@@ -26,4 +26,10 @@ class Rental
     {
         return movie.getPriceCode().calculateFrequentRenterPoints(this);
     }
+
+    public String getReport()
+    {
+        return "\t" + this.getMovie().getTitle() + "\t" + "\t" + this.getDaysRented() + "\t"
+            + String.valueOf(this.getCost()) + "\n";
+    }
 }

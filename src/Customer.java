@@ -32,14 +32,11 @@ class Customer
 
         rentalList.stream().forEach(rental -> {
 
-            double rentalCost = rental.getCost();
+            completePayment += rental.getCost();
 
             frequentRenterPoints += rental.getGainedRenterPoints();
 
-            //show figures for this rental
-            rentalStatus += "\t" + rental.getMovie().getTitle() + "\t" + "\t" + rental.getDaysRented() + "\t"
-                + String.valueOf(rentalCost) + "\n";
-            completePayment += rentalCost;
+            rentalStatus += rental.getReport();
         });
 
         //add footer lines
